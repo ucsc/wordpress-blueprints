@@ -92,7 +92,7 @@
 			"step": "importWxr",
 			"file": {
 				"resource": "bundled",
-				"path": "/content/sample-content.wxr"
+				"path": "/content/ucsc-block-showcase.xml"
 			}
 		},
 		{
