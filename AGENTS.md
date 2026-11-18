@@ -2,7 +2,7 @@
 
 This repository is a WordPress Playground Blueprint Bundle. A bundle is a `blueprint.json` file plus the files that it loads with `"resource": "bundled"`. Playground fetches bundled files from the same folder as the blueprint, so the repository root is the bundle. There is no build step, no package manager, no linter, and no test suite.
 
-The bundle boots a generic UC Santa Cruz campus site. It installs the UCSC 2022 theme, the UCSC Custom Functionality plugin, the UCSC Blocks plugin, the free Advanced Custom Fields (ACF) plugin, and The Icon Block. It also installs the UCSC Gutenberg Blocks plugin but does not activate it. Then it imports sample content.
+The bundle boots a generic UC Santa Cruz campus site. It installs the UCSC 2022 theme, the UCSC Custom Functionality plugin, the UCSC Blocks plugin, and The Icon Block. It also installs the UCSC Gutenberg Blocks plugin but does not activate it. Then it imports sample content.
 
 ## Running it locally
 
@@ -19,7 +19,7 @@ Each boot runs the blueprint on a fresh site. To test a change, stop the server 
 The order of the steps in `blueprint.json` matters:
 
 1. `setSiteOptions` sets the site name and the `/%postname%/` permalink structure.
-2. The plugin steps run before `installTheme`. The theme needs ACF to be active at load time. Put any new plugin step before `installTheme`.
+2. The plugin steps run before `installTheme`. Put any new plugin step before `installTheme`.
    `installTheme` has `"ifAlreadyInstalled": "skip"`, and an `activateTheme` step follows it. These two settings let a developer mount a local theme checkout with `--mount` in place of the release zip. Do not remove them. The "Developing the theme locally" section of `README.md` has the command.
 3. `importWxr` imports `content/sample-content.wxr`.
 4. `writeFile` copies `content/setup.php` to `/tmp/ucsc-setup.php`, and `runPHP` then requires it. The `runPHP` step takes inline code only, so this two-step pattern is how the bundle runs a PHP file from the repository.

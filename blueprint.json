@@ -2,7 +2,7 @@
 	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
 	"meta": {
 		"title": "UC Santa Cruz WordPress",
-		"description": "Generic UC Santa Cruz campus site: the UCSC 2022 theme with UCSC Custom Functionality, UCSC Blocks, The Icon Block and the free Advanced Custom Fields plugin, plus sample content. UCSC Gutenberg Blocks is installed but not activated. The theme and UCSC plugins install from each repo's latest GitHub release. Proof of concept: ACF PRO isn't included, so ACF blocks (the theme's main navigation and breadcrumbs, and the custom functionality plugin's blocks) don't render, and the theme's ACF options page is unavailable.",
+		"description": "Generic UC Santa Cruz campus site: the UCSC 2022 theme with UCSC Custom Functionality, UCSC Blocks and The Icon Block, plus sample content. UCSC Gutenberg Blocks is installed but not activated. The theme and UCSC plugins install from each repo's latest GitHub release. Proof of concept: Advanced Custom Fields (ACF) PRO isn't included, so ACF blocks (the theme's main navigation and breadcrumbs, and the custom functionality plugin's blocks) don't render, and the theme's ACF options page is unavailable.",
 		"author": "ucsc",
 		"categories": ["Theme", "UCSC"]
 	},
@@ -22,16 +22,6 @@
 				"blogname": "UC Santa Cruz",
 				"blogdescription": "WordPress Playground preview",
 				"permalink_structure": "/%postname%/"
-			}
-		},
-		{
-			"step": "installPlugin",
-			"pluginData": {
-				"resource": "wordpress.org/plugins",
-				"slug": "advanced-custom-fields"
-			},
-			"options": {
-				"activate": true
 			}
 		},
 		{
