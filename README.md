@@ -121,3 +121,32 @@ npx @wp-playground/cli@latest server --blueprint=. --blueprint-may-read-adjacent
 The CLI does not read bundled files unless you add `--blueprint-may-read-adjacent-files`.
 
 Open the address that the command prints, usually `http://127.0.0.1:9400`. You are logged in as `admin`.
+
+## Developing the theme locally
+
+The blueprint can also load your local checkout of the [UCSC 2022 theme](https://github.com/ucsc/ucsc-2022) in place of the release zip. Use this mode to test a theme branch with the plugins and the sample content of this bundle.
+
+Before you start, build the theme branch. The `build/` and `vendor/` folders are not in the theme repository. Run these commands in your theme checkout:
+
+```bash
+composer install --no-dev
+npm ci
+npm run build
+```
+
+Then run this command from the root of this repository. Replace `/path/to/ucsc-2022` with the path of your theme checkout:
+
+```bash
+npx @wp-playground/cli@latest server --blueprint=. --blueprint-may-read-adjacent-files \
+	--mount=/path/to/ucsc-2022:/wordpress/wp-content/themes/ucsc-2022
+```
+
+The `--mount` option puts your checkout at the theme folder before the blueprint runs. The `installTheme` step has `"ifAlreadyInstalled": "skip"`, so it does not install the release zip over your checkout. The `activateTheme` step after it activates the theme in both modes.
+
+Follow these rules:
+
+- The mount target must end in `themes/ucsc-2022`. If the folder name is different, Playground installs the release zip next to your checkout, and the site uses the release.
+- Playground writes to your real files through the mount. Commit or stash your work before the first run.
+- To see your edits to PHP, templates, and `theme.json`, reload the page. Edits in `src/` show only after you run `npm run build` again, or while `npm start` runs.
+
+To test a plugin branch at the same time, add one more `--mount` option, for example `--mount=/path/to/ucsc-blocks:/wordpress/wp-content/plugins/ucsc-blocks`. Before you mount a plugin, add `"ifAlreadyInstalled": "skip"` to the step of that plugin. Without it, the step can write the release zip over your checkout.

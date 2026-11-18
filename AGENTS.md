@@ -20,6 +20,7 @@ The order of the steps in `blueprint.json` matters:
 
 1. `setSiteOptions` sets the site name and the `/%postname%/` permalink structure.
 2. The plugin steps run before `installTheme`. The theme needs ACF to be active at load time. Put any new plugin step before `installTheme`.
+   `installTheme` has `"ifAlreadyInstalled": "skip"`, and an `activateTheme` step follows it. These two settings let a developer mount a local theme checkout with `--mount` in place of the release zip. Do not remove them. The "Developing the theme locally" section of `README.md` has the command.
 3. `importWxr` imports `content/sample-content.wxr`.
 4. `writeFile` copies `content/setup.php` to `/tmp/ucsc-setup.php`, and `runPHP` then requires it. The `runPHP` step takes inline code only, so this two-step pattern is how the bundle runs a PHP file from the repository.
 

@@ -83,10 +83,15 @@
 				"resource": "url",
 				"url": "https://github.com/ucsc/ucsc-2022/releases/latest/download/ucsc-2022.zip"
 			},
+			"ifAlreadyInstalled": "skip",
 			"options": {
 				"activate": true,
 				"targetFolderName": "ucsc-2022"
 			}
+		},
+		{
+			"step": "activateTheme",
+			"themeFolderName": "ucsc-2022"
 		},
 		{
 			"step": "importWxr",
