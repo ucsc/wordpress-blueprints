@@ -14,7 +14,6 @@ This repository is a [WordPress Playground](https://developer.wordpress.org/play
 | [UCSC Custom Functionality](https://github.com/ucsc/ucsc-custom-functionality) | Latest GitHub release zip |
 | [UCSC Blocks](https://github.com/ucsc/ucsc-blocks) | Latest GitHub release zip |
 | [UCSC Gutenberg Blocks](https://github.com/ucsc/ucsc-gutenberg-blocks) (installed, not activated) | Latest GitHub release zip |
-| Advanced Custom Fields (free) | wordpress.org |
 | The Icon Block | wordpress.org |
 | Sample pages and posts | `content/sample-content.wxr` in this repository |
 
@@ -86,7 +85,7 @@ If the release of a UCSC plugin includes a `<repo>.zip` file, you can add the pl
 }
 ```
 
-Put each plugin step before the theme step. The theme needs ACF to be active at load time.
+Put each plugin step before the theme step.
 
 If you want the plugin installed but not active, set `"activate"` to `false`.
 
@@ -106,7 +105,7 @@ Follow these rules for the new content:
 
 ## Known limitations
 
-- ACF PRO is not included. It is licensed, so a public blueprint cannot download it. ACF blocks do not render. This affects the main navigation and the breadcrumbs of the theme, and the blocks of the custom functionality plugin. The ACF options page of the theme is not available.
+- Advanced Custom Fields (ACF) PRO is not included. It is licensed, so a public blueprint cannot download it. ACF blocks do not render. This affects the main navigation and the breadcrumbs of the theme, and the blocks of the custom functionality plugin. The ACF options page of the theme is not available.
 - The GitHub release zips download through the CORS proxy of Playground. See [How the theme and plugins are installed](#how-the-theme-and-plugins-are-installed).
 - Changes do not persist. If you do not save the site from the Playground menu, your changes disappear when you close the tab.
 
