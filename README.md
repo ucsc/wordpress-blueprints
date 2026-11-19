@@ -55,11 +55,17 @@ Load the zip from New > Blueprint URL in Playground, or give it to the CLI (see 
 
 ## Linking from another repository
 
-Add this line to the README of any UCSC repository:
+To link to the campus site from the README of another UCSC repository, add this line:
 
 ```markdown
-[Preview in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/ucsc/wordpress-blueprints/main/blueprint.json)
+[Open the UCSC campus site in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/ucsc/wordpress-blueprints/main/blueprint.json)
 ```
+
+The link always opens the same site. Playground does not know which repository the link is in, so it does not add that repository to the site.
+
+If the repository is the theme or a plugin in [What is in it](#what-is-in-it), the site has the latest release of it. The site does not have the code on a branch or a pull request.
+
+If the repository is not in that list, the site does not have it. To add it for every visitor, see [Adding a plugin](#adding-a-plugin).
 
 ## How the theme and plugins are installed
 
